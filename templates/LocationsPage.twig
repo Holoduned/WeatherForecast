@@ -1,0 +1,56 @@
+{% extends "base.html.twig" %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('styles/styles3.css') }}" />
+{% endblock %}
+{% block javascripts %}
+
+{% endblock %}
+{% block body %}
+    <div style="background-image: url('{{ asset('img/main.jpg') }}')" class="main">
+
+        <div class="search-container">
+            <h1 class="title">Найти прогноз погоды</h1>
+            <div style="display: flex; flex-direction: row; padding-top: 30px; width: 700px">
+                <input placeholder="Ваш город" type="text" id="location" class="form-control input-rounder text_into_input_color" required="required">
+                <button id="searchButton" name="submit_btn" class="search_button">Поиск</button>
+            </div>
+        </div>
+        <div id="locations_container" class="locations_container"></div>
+
+        <div id="tabsContainer" class="hidden-tab-content">
+            <div>
+                <ul class="tabs_container" id="tabs">
+                    <li id="active_tab" data-tab="tab-1" class="active-tab tab-text">Сегодня</li>
+                    <li data-tab="tab-2" class="tab_title tab-text">3 дня</li>
+                    <li data-tab="tab-3" class="tab_title tab-text">Неделя</li>
+                </ul>
+            </div>
+            <div class="tabs_wrapper">
+                <div id="tab-1" class="tab_content">
+                    <div class="tab1">
+                        <div id="todayContainer" class="today-container">
+                            <div id="todayParent" class="today-parent">
+                            </div>
+                            <div id="imgParent">
+                            </div>
+                        </div>
+                        <div id="hoursParent" class="hours-container">
+                        </div>
+                    </div>
+
+                </div>
+                <div id="tab-2" class="tab_content hidden-tab-content">
+                    <div class="three-container" id="threeContainer"></div>
+                </div>
+                <div id="tab-3" class="tab_content hidden-tab-content">
+                    <div class="week-container" id="weekContainer"></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="{{ asset('scripts/geolocation_scripts4.js') }}"></script>
+    <script src="{{ asset('scripts/weather-scripts1.js') }}"></script>
+    <script src="{{ asset('scripts/global1.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,18 @@
+.hidden-tab-content{
+    display: none;
+}
+.active-tab{
+    color: #6D28D9;
+}
+
+.input-rounder{
+    border-radius: 2px;
+}
+.search-container{
+    display: flex;
+    justify-content: center;
+    padding: 100px;
+}
+.search_button{
+    margin-left: 5px;
+}
