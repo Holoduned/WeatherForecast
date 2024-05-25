@@ -18,7 +18,7 @@ jobs:
       - name: Set up PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '7.4'  # Укажите вашу версию PHP
+          php-version: '8.1'
           extensions: mbstring, intl, zip
 
       - name: Install dependencies
