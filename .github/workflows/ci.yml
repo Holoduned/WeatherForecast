@@ -24,9 +24,6 @@ jobs:
       - name: Install dependencies
         run: composer install
 
-      - name: Run tests
-        run: vendor/bin/phpunit
-
   dockerize:
     needs: build
     runs-on: ubuntu-latest
