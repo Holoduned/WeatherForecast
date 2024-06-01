@@ -52,9 +52,6 @@ jobs:
     - name: Build the Docker image
       run: docker build -t weather-forecast .
 
-    - name: Docker Compose
-      run: docker compose build --no-cache
-
     - name: Log in to Docker Hub
       run: echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
 
@@ -62,4 +59,8 @@ jobs:
       run: docker tag weather-forecast ${{ secrets.DOCKER_USERNAME }}/weather-forecast
     - name: Push to Docker Hub
       run: docker push ${{ secrets.DOCKER_USERNAME }}/weather-forecast
-      
+
+    - name: Send Telegram notification
+      run: |
+        curl -X POST "https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendMessage" -d "chat_id=${{ secrets.TELEGRAM_CHAT_ID }}&text=Build%20${{ job.status }}%20for%20${{ github.repository }}%20on%20branch%20${{ github.ref }}"
+      if: always()
