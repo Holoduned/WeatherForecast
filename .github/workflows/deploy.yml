@@ -24,7 +24,7 @@ jobs:
           update: true
 
     - name: Validate composer.json and composer.lock
-      run: composer validate
+      run: composer init
     - name: Get composer cache directory
       id: composer-cache
       run: echo "::set-output name=dir::$(composer config cache-files-dir)"
